@@ -2,14 +2,10 @@
 import BaseLayout from './BaseLayout.astro';
 import PostNavigation from '../components/PostNavigation.astro';
 import { formatDate } from '../utils/date';
-import { optimizeImagePath } from '../utils/optimizeImagePath';
 
 const { frontmatter, headings, prevPost, nextPost } = Astro.props;
-const { title, date, tags, image, excerpt } = frontmatter;
+const { title, date, tags, excerpt } = frontmatter;
 const slug = Astro.url.pathname.split('/').filter(Boolean).pop();
-
-// Ensure image path is optimized
-const optimizedImagePath = image ? optimizeImagePath(image) : null;
 
 // Estimated reading time
 const WORDS_PER_MINUTE = 225;
@@ -25,14 +21,13 @@ const publishDate = new Date(date);
 <BaseLayout
   title={title}
   description={excerpt}
-  image={optimizedImagePath || image}
   type="article"
   publishedDate={publishDate}
 >
   <article id="main-content">
     <header class="max-w-3xl mx-auto mb-10">
       <div class="text-gray-500 text-sm mb-2">
-        <time datetime={publishDate.toISOString()}>{formatDate(date)}</time> • <span aria-label={`${readingTime} minute read`}>{readingTime} min read</span>
+        <time datetime={publishDate.toISOString()}>整理于 {formatDate(date)}</time> · <span aria-label={`${readingTime} minute read`}>{readingTime} 分钟阅读</span>
       </div>
       <h1 class="text-5xl mb-6" transition:name={`title-${slug}`}>{title}</h1>
       {excerpt && <p class="text-xl text-gray-500">{excerpt}</p>}
@@ -51,20 +46,6 @@ const publishDate = new Date(date);
         </div>
       )}
     </header>
-
-    {optimizedImagePath && (
-      <div class="max-w-4xl mx-auto mt-2 mb-10 feature-image" transition:name={`image-${slug}`}>
-        <img
-          src={optimizedImagePath}
-          alt={`Featured image for "${title}"`}
-          class="w-full h-full object-cover"
-          loading="eager"
-          decoding="async"
-          width="1200"
-          height="675"
-        />
-      </div>
-    )}
 
     <div class="max-w-3xl mx-auto prose prose-xl">
       <slot />

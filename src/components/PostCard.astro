@@ -1,6 +1,5 @@
 ---
 import { formatDate } from '../utils/date';
-import { optimizeImagePath } from '../utils/optimizeImagePath';
 
 interface Props {
   post: {
@@ -10,7 +9,6 @@ interface Props {
       title: string;
       date: string;
       excerpt: string;
-      image?: string;
       tags?: string[];
     };
   };
@@ -20,10 +18,7 @@ interface Props {
 }
 
 const { post, showImage = true, showExcerpt = true, showTags = true } = Astro.props;
-const { title, date, excerpt, image, tags } = post.frontmatter;
-
-// Ensure image path is optimized
-const optimizedImagePath = image ? optimizeImagePath(image) : null;
+const { title, date, excerpt, tags } = post.frontmatter;
 ---
 
 <article class="border-t border-gray-200 dark:border-gray-800 py-4 xl:py-8" transition:name={`post-${post.id}`}>
@@ -38,7 +33,7 @@ const optimizedImagePath = image ? optimizeImagePath(image) : null;
         datetime={new Date(date).toISOString()}
         class="text-gray-500 text-sm shrink-0 sm:ml-4 sm:text-right self-center"
       >
-        {formatDate(date)}
+        整理于 {formatDate(date)}
       </time>
     </div>
     
@@ -56,24 +51,6 @@ const optimizedImagePath = image ? optimizeImagePath(image) : null;
       </div>
     )}
     
-    {showImage && optimizedImagePath && (
-      <a 
-        href={post.url} 
-        class="block feature-image focus-ring"
-        aria-label={`View ${title} article`}
-      >
-        <img
-          src={optimizedImagePath}
-          alt={`Preview image for ${title}`}
-          class="w-full h-full object-cover transition-transform hover:scale-105"
-          loading="lazy"
-          decoding="async"
-          width="800"
-          height="450"
-        />
-      </a>
-    )}
-    
     {showExcerpt && (
       <>
         <p class="text-gray-500">{excerpt}</p>
@@ -81,9 +58,9 @@ const optimizedImagePath = image ? optimizeImagePath(image) : null;
           <a 
             href={post.url} 
             class="text-sm font-medium hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 rounded px-2 py-1 inline-block"
-            aria-label={`Read more about ${title}`}
+            aria-label={`阅读全文：${title}`}
           >
-            Read more <span aria-hidden="true">→</span>
+            阅读全文 <span aria-hidden="true">→</span>
           </a>
         </div>
       </>

@@ -10,7 +10,7 @@ export async function GET(context) {
   );
   
   return rss({
-    title: 'Brook Blog',
+    title: 'daoge.online',
     description: 'A minimalist blog template focusing on clean typography and distraction-free reading experience',
     site: context.site,
     items: sortedPosts.map((post) => ({

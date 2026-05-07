@@ -7,5 +7,5 @@ import { format } from 'date-fns';
  */
 export function formatDate(date) {
   const dateObject = typeof date === 'string' ? new Date(date) : date;
-  return format(dateObject, 'MMMM d, yyyy');
+  return format(dateObject, 'yyyy-MM-dd');
 }

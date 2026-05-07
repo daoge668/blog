@@ -255,7 +255,8 @@
   
   /* Preformatted text */
   pre {
-    @apply font-mono bg-gray-100 p-4 rounded-md overflow-x-auto text-sm my-6 border border-gray-200;
+    @apply font-mono bg-gray-900 p-4 rounded-md overflow-x-auto text-sm my-6 border border-gray-700;
+    color: #93c5fd;
   }
   
   /* Code blocks */
@@ -265,6 +266,7 @@
   
   pre code {
     @apply p-0 border-0 bg-transparent;
+    color: #93c5fd;
   }
   
   /* Lists */

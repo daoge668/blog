@@ -5,49 +5,40 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout title="About">
   <div class="max-w-3xl mx-auto">
     <header class="mb-12 text-center" transition:animate="fade">
-      <h1 class="text-5xl mb-4">About</h1>
+      <h1 class="text-5xl mb-4">关于我</h1>
       <p class="text-xl text-muted-foreground">
-        Learn more about Brook, a minimalist blog template
+        计算机科学与技术本科在读，关注 Java 后端、高并发系统和大模型应用工程化。
       </p>
     </header>
     
     <div class="prose prose-lg dark:prose-invert max-w-none" transition:animate="fade">
       <p>
-        Brook is a minimalist blog template designed for developers and writers who value clean typography 
-        and a distraction-free reading experience. Built with modern web technologies, Brook offers a 
-        perfect balance of simplicity and functionality.
+        我是 daoge，目前就读于南京邮电大学计算机科学与技术专业。这个博客用于整理项目复盘、技术学习和工程实践，
+        重点关注 Java、SpringBoot、SpringCloud、MySQL、Redis、Kafka、JVM、JUC 以及 Spring AI 相关内容。
       </p>
       
-      <h2>Features</h2>
+      <h2>技术方向</h2>
       
       <ul>
-        <li>Clean, minimalist design that puts your content first</li>
-        <li>Full dark mode support</li>
-        <li>Responsive layout for all devices</li>
-        <li>Content collections for easy content management</li>
-        <li>Markdown and MDX support for rich content</li>
-        <li>Code syntax highlighting for developers</li>
-        <li>Tags and categorization</li>
-        <li>SEO optimized</li>
-        <li>Fast performance with minimal JavaScript</li>
-        <li>Smooth page transitions</li>
+        <li>Java 后端开发：集合、并发、JVM、Spring 生态与微服务基础。</li>
+        <li>高并发系统设计：Kafka 削峰填谷、Redis 限流、延时消息和分布式锁。</li>
+        <li>数据库与缓存：MySQL 索引、事务、MVCC、锁机制与 Redis 高性能实践。</li>
+        <li>AI 工程化：基于 Spring AI 的 RAG、ReAct Agent、Plan-Execute Agent 和流式响应。</li>
       </ul>
       
-      <h2>Technology</h2>
+      <h2>项目经历</h2>
       
       <p>
-        Brook is built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>, 
-        a modern static site generator that delivers lightning-fast performance with a great developer 
-        experience. Combined with <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer">Tailwind CSS</a> 
-        for styling, Brook provides a solid foundation for your content.
+        近期主要项目包括通用消息推送中间件和自动化运维 Agent。前者围绕多渠道发送、Kafka 与 MySQL 双中转站、
+        三优先级消费、Redis 限流、ZSet 延时消息和多厂商容灾展开；后者围绕 Spring AI、RAG 知识库、
+        工具调用、多轮对话和系统性排障展开。
       </p>
       
-      <h2>Get Started</h2>
+      <h2>写作目标</h2>
       
       <p>
-        Whether you're a developer looking to share code snippets, a writer seeking a clean platform for your 
-        stories, or anyone in between, Brook provides the perfect starting point for your content. Check out the 
-        <a href="/journal">Journal</a> to see it in action.
+        我希望把简历里的项目经验沉淀成更具体的技术文章：不仅写“做了什么”，也写清楚为什么这样设计、有哪些取舍、
+        以及遇到问题时应该如何排查。更多内容可以在 <a href="/journal">技术文章</a> 中查看。
       </p>
     </div>
   </div>
